@@ -1,16 +1,67 @@
-html,
-body {
-  padding: 0;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "./prism.css";
+
+.underline-strikethrough {
+  text-decoration: underline line-through;
+}
+
+.width-over {
+  width: calc(100% + 100px);
+}
+
+.divider {
+  width: 1px;
+  background-color: #eee;
+  margin: 0 4px;
+}
+
+.button-active {
+  color: #AA39AA;
+  text-shadow: 0 0 10px #990099,0 0 25px #993399;
+}
+
+.custom-min-h {
+  min-height: 200px
+}
+
+.editor-code {
+  background-color: rgb(240, 242, 245);
+  font-family: Menlo, Consolas, Monaco, monospace;
+  display: block;
+  padding: 8px 8px 8px 52px;
+  line-height: 1.53;
+  font-size: 13px;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  tab-size: 2;
+  /* white-space: pre; */
+  overflow-x: auto;
+  position: relative;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.editor-code:before {
+  content: attr(data-gutter);
+  position: absolute;
+  background-color: #eee;
+  left: 0;
+  top: 0;
+  border-right: 1px solid #ccc;
+  padding: 8px;
+  color: #777;
+  white-space: pre-wrap;
+  text-align: right;
+  min-width: 25px;
 }
-
-* {
-  box-sizing: border-box;
+.editor-code:after {
+  content: attr(data-highlight-language);
+  top: 0;
+  right: 3px;
+  padding: 3px;
+  font-size: 10px;
+  text-transform: uppercase;
+  position: absolute;
+  color: rgba(0, 0, 0, 0.5);
 }
